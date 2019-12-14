@@ -14,4 +14,9 @@ docker build --tag=helloworldflask .
 docker run --detach --publish=5000:80 --name=helloworldflask helloworldflask
 ```
 
-Go to <http://localhost:5000/>
+Go to <http://localhost:5000/> or run
+
+``` sh
+curl http://localhost:5000
+```
+
