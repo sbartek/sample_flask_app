@@ -20,3 +20,66 @@ Go to <http://localhost:5000/> or run
 curl http://localhost:5000
 ```
 
+## k8s with minickube
+
+
+### Start minikube
+``` sh
+minikube start
+minikube dashboard
+```
+
+### Build docker in minikube environments
+
+``` sh
+eval $(minikube docker-env)
+```
+
+``` sh
+docker build --tag=helloworldflask .
+```
+
+``` sh
+docker images
+```
+
+### Run docker
+
+``` sh
+kubectl run helloworldapp --image=helloworldapp --image-pull-policy=Never
+```
+
+``` sh
+kubectl get deployments
+```
+
+### Create service
+
+``` sh
+kubectl expose deployment helloworldapp --type=LoadBalancer --port=80
+```
+
+
+``` sh
+kubectl get services
+```
+
+
+``` sh
+minikube service helloworldapp
+```
+
+### Clean up
+
+``` sh
+kubectl delete service helloworldapp
+kubectl delete deployment helloworldapp
+minikube stop
+minikube delete
+```
+
+
+``` sh
+kubectl get pods
+```
+
