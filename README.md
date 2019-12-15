@@ -20,6 +20,15 @@ Go to <http://localhost:5000/> or run
 curl http://localhost:5000
 ```
 
+## Push to docker hub
+
+``` sh
+docker tag helloworldflask <username>/helloworldflask:1.0.0
+docker push <username>/helloworldflask:1.0.0
+```
+
+This push refers then to repository `docker.io/<username>/helloworldflask`
+
 ## k8s with minickube
 
 
