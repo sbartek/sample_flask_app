@@ -38,7 +38,14 @@ minikube start
 minikube dashboard
 ```
 
-### Build docker in minikube environments
+### Create deployment for docker container in docker hub
+
+``` sh
+kubectl create deployment helloworldflask\
+    --image=<username>/helloworldflask:1.0.0
+```
+
+#### Alternative: Build docker in minikube environments
 
 ``` sh
 eval $(minikube docker-env)
@@ -54,8 +61,14 @@ docker images
 
 ### Run docker
 
+
 ``` sh
-kubectl run helloworldapp --image=helloworldapp --image-pull-policy=Never
+kubectl run helloworldflask --image=helloworldflask --generator=run-pod/v1
+```
+
+Alternative for local docker:
+``` sh
+kubectl run helloworldflask --image=helloworldflask --image-pull-policy=Never
 ```
 
 ``` sh
@@ -65,7 +78,7 @@ kubectl get deployments
 ### Create service
 
 ``` sh
-kubectl expose deployment helloworldapp --type=LoadBalancer --port=80
+kubectl expose deployment helloworldflask --type=LoadBalancer --port=80
 ```
 
 
@@ -75,7 +88,7 @@ kubectl get services
 
 
 ``` sh
-minikube service helloworldapp
+minikube service helloworldflask
 ```
 
 ### Clean up

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskhelloworld-deployment
+spec:
+  selector:
+    matchLabels:
+      app: flaskhelloworld
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flaskhelloworld
+    spec:
+      containers:
+      - name: flaskhelloworld
+        image: barteks/flaskhelloworld:1.0.0
+        ports:
+        - containerPort: 80
