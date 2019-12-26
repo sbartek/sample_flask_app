@@ -4,7 +4,6 @@ metadata:
   labels:
     run: flaskhelloworld
   name: flaskhelloworld
-  namespace: default
 spec:
   ports:
   - nodePort: 31182
